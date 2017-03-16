@@ -1,0 +1,5 @@
+#ifndef BITCOIN_TIMESTAMPS_H
+#define BITCOIN_TIMESTAMPS_H
+
+
+#endif

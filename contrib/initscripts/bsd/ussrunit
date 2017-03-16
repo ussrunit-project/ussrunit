@@ -1,0 +1,68 @@
+#!/bin/sh
+
+# PROVIDE: ussrunit
+# REQUIRE: LOGIN
+# KEYWORD: shutdown
+
+#
+# Add the following lines to /etc/rc.conf.local or /etc/rc.conf
+# to enable this service:
+#
+# ussrcoin_enable (bool): Set to NO by default. Set this variable to YES if you want to enable ussrunit service.
+# ussrcoin_config (path): Set to /usr/local/etc/ussrunit.conf by default.
+# ussrcoin_user:  The user account ussrunit daemon runs as. It uses 'root' user by default.
+# ussrcoin_group: The group account ussrunit daemon runs as. It uses 'wheel' group by default.
+# ussrcoin_datadir (str): Default to "/var/db/ussrunit". Base data directory.
+
+. /etc/rc.subr
+
+name=ussrunit
+rcvar=ussrcoin_enable
+
+: ${ussrcoin_enable:=NO}
+: ${ussrcoin_config=/usr/local/etc/ussrunit.conf}
+: ${ussrcoin_datadir=/var/db/ussrunit}
+: ${ussrcoin_user="root"}
+: ${ussrcoin_group="wheel"}
+
+required_files=${ussrcoin_config}
+command=/usr/local/bin/ussrunitd
+ussrcoin_chdir=${ussrcoin_datadir}
+pidfile="${ussrcoin_datadir}/ussrunitd.pid"
+stop_cmd=ussrcoin_stop
+command_args="-conf=${ussrcoin_config} -datadir=${ussrcoin_datadir} -daemon -pid=${pidfile}"
+start_precmd="${name}_prestart"
+
+ussrcoin_create_datadir()
+{
+	echo "Creating data directory"
+	eval mkdir -p ${ussrcoin_datadir}
+	[ $? -eq 0 ] && chown -R ${ussrcoin_user}:${ussrcoin_group} ${ussrcoin_datadir}
+}
+
+ussrcoin_prestart()
+{
+	if [ ! -d "${ussrcoin_datadir}/." ]; then
+		ussrcoin_create_datadir || return 1
+	fi
+}
+
+ussrcoin_requirepidfile()
+{
+	if [ ! "0`check_pidfile ${pidfile} ${command}`" -gt 1 ]; then
+		echo "${name} not running? (check $pidfile)."
+		exit 1
+	fi
+}
+
+ussrcoin_stop()
+{
+    ussrcoin_requirepidfile
+
+	echo "Stopping ${name}."
+	eval ${command} -conf=${ussrcoin_config} -datadir=${ussrcoin_datadir} stop
+	wait_for_pids ${rc_pid}
+}
+
+load_rc_config $name
+run_rc_command "$1"

@@ -1,0 +1,9 @@
+Building UssrUnit
+
+See doc/readme-qt.rst for instructions on building UssrUnit Qt,
+the intended-for-end-users, nice-graphical-interface, reference
+implementation of UssrUnit.
+
+See doc/build-*.txt for instructions on building ussrunitd,
+the intended-for-services, no-graphical-interface, reference
+implementation of UssrUnit.

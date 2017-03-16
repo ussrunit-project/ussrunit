@@ -1,0 +1,11 @@
+[Unit]
+Description=Ussrcoin daemon serivce
+After=network.target
+
+[Service]
+Type=simple
+User=ussrunit
+ExecStart=/opt/ussrunit/ussrunitd
+
+[Install]
+WantedBy=multi-user.target

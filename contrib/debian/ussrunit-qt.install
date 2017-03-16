@@ -1,0 +1,5 @@
+ussrunit-qt usr/bin
+share/pixmaps/ussrcoin32.xpm usr/share/pixmaps
+share/pixmaps/ussrcoin80.xpm usr/share/pixmaps
+debian/ussrunit-qt.desktop usr/share/applications
+debian/ussrunit-qt.protocol usr/share/kde4/services/

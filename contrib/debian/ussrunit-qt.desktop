@@ -1,0 +1,13 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=UssrUnit
+Comment=UssrUnit P2P Cryptocurrency
+Comment[ru]=UssrUnit, P2P криптовалюта
+Comment[fr]=UssrUnit, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=UssrUnit, eşten eşe kriptografik sanal para birimi
+Exec=/usr/bin/ussrunit-qt
+Terminal=false
+Type=Application
+Icon=/usr/share/pixmaps/ussrcoin80.xpm
+MimeType=x-scheme-handler/ussrunit;
+Categories=Office;
