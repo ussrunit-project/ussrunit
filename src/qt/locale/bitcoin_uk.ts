@@ -2156,8 +2156,8 @@ Reduce the number of addresses involved in the address creation.</source>
     <message>
         <location filename="../forms/optionsdialog.ui" line="480"/>
         <location filename="../forms/optionsdialog.ui" line="493"/>
-        <source>Third party URLs (e.g. explorer.ussr.in) that appear in the transactions tab as context menu items. %s in the URL is replaced by transaction hash. Multiple URLs are separated by vertical bar |.</source>
-        <translation>Сторонні URL (наприклад explorer.ussr.in), які відображаються на вкладці транзакцій як пункти контекстного меню. %s в URL замінюється хешем транзакції. URL відокремлюються один від одного вертикальною рискою |.</translation>
+        <source>Third party URLs (e.g. explorer.ussr-unit.su) that appear in the transactions tab as context menu items. %s in the URL is replaced by transaction hash. Multiple URLs are separated by vertical bar |.</source>
+        <translation>Сторонні URL (наприклад explorer.ussr-unit.su), які відображаються на вкладці транзакцій як пункти контекстного меню. %s в URL замінюється хешем транзакції. URL відокремлюються один від одного вертикальною рискою |.</translation>
     </message>
     <message>
         <location filename="../forms/optionsdialog.ui" line="483"/>
